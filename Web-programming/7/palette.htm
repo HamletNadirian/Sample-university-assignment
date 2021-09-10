@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>Палитра</TITLE>
+</HEAD>
+<BODY>
+<STYLE>
+#palette {width:360px; height:30px;}
+#palette div {width:1px; height:300px; float:left;}
+</STYLE>
+<DIV ID="palette"></DIV>
+<SCRIPT>
+// drawPalette - формирует HTML-код палитры 
+// и вставляет его в родительский DIV
+function drawPalette() {
+	var out = "";
+	for (var i = 0; i < 360; i++) {
+		// HSLToRGB - как раз и есть функция конвертации
+		// Смотреть отдельно
+		out += "<div onclick='selectColor(this);' style='background-color:" + HSLToRGB(i, 100, 100) + "'></div>";
+	}
+	document.getElementById("palette").innerHTML = out;
+}
+// selectColor - обрабатывает щелчок по цвету
+function selectColor(div) {
+	var color = div.style.backgroundColor;
+	color = rgbNormal(color);
+	// Тестовый вывод
+	alert(color);
+}
+// rgbNormal - функция для перевода цвета из
+// формата rgb(255,255,255) в #FFFFFF.
+// Написана специально для Gecko
+function rgbNormal(color) {
+	color = color.toString();
+	var re = /rgb\((.*?)\)/i;
+	if(re.test(color)) {
+		compose = RegExp.$1.split(",");
+		var hex = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+		var result = "#";
+		for (var i = 0; i < compose.length; i++) {
+			rgb = parseInt(compose[i]);
+			result += hex[parseInt(rgb / 16)] + hex[rgb % 16];
+		}
+		return result;
+	} else return color;
+}
+// РИСУЕМ!
+drawPalette();
+// ========== END: palette ==============
+
+// ========== BEGIN: HSB > RGB ==============
+// Авторские права:
+// by Branco Medeiros, 1999, branco@apis.com.br
+//  (adapted from Java.awt.Color.java)
+// adjusted to our definition by Donald, 20011119
+function HSLToRGB(Hue, Saturation, Luminance) {
+	var R, G, B;
+	var nH, nS, nL;
+	var nF, nP, nQ, nT;
+	var lH;
+	if (Saturation > 0) {
+		nH = Hue / 60;
+		nL = Luminance / 100;
+		nS = Saturation / 100;
+		
+		lH = parseInt(nH);
+		nF = nH - lH;
+		nP = nL * (1 - nS);
+		nQ = nL * (1 - nS * nF);
+		nT = nL * (1 - nS * (1 - nF));
+		switch (lH) {
+			case 0:
+				R = nL * 255;
+				G = nT * 255;
+				B = nP * 255;
+			break;
+			case 1:
+				R = nQ * 255;
+				G = nL * 255;
+				B = nP * 255;
+			break;
+			case 2:
+				R = nP * 255;
+				G = nL * 255;
+				B = nT * 255;
+			break;
+			case 3:
+				R = nP * 255;
+				G = nQ * 255;
+				B = nL * 255;
+			break;
+			case 4:
+				R = nT * 255;
+				G = nP * 255;
+				B = nL * 255;
+			break;
+			case 5:
+				R = nL * 255;
+				G = nP * 255;
+				B = nQ * 255;
+			break;
+		}
+	} else {
+		R = (Luminance * 255) / 100;
+		G = R;
+		B = R;
+	}
+	return RGBToLongSafe(R, G, B);
+}
+	
+function RGBToLongSafe(R, G, B) {
+	R = parseInt(xLimit(R, 0, 255));
+	G = parseInt(xLimit(G, 0, 255));
+	B = parseInt(xLimit(B, 0, 255));
+	return decToHex([R,G,B]);
+}
+
+function decToHex(decArray) {
+	var hex = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+	var out = "#";
+	for (var i = 0; i < decArray.length; i++) {
+		dec = parseInt(decArray[i]);
+		out += hex[parseInt(dec / 16)] + hex[dec % 16];
+	}
+	return out;
+}
+	
+function xLimit(Value, Lower, Higher) {
+	if (Value < Lower) Value = Lower;
+	if (Value > Higher) Value = Higher;
+	return Value;
+}
+</SCRIPT>
+</BODY>
+</HTML>
+<!-- This document saved from http://fastcoder.org/demo/palette.html -->

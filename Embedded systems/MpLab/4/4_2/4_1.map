@@ -1,0 +1,31 @@
+MPLINK 4.30.01, Linker
+Linker Map File - Created Mon Oct 28 13:03:39 2019
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x00000a
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000004      
+            5 out of 1093 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    start   0x000002    program     static C:\Users\HamOs\Desktop\Root\learn\Embedded_systems\MpLab\4\4_2\4_1.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    start   0x000002    program     static C:\Users\HamOs\Desktop\Root\learn\Embedded_systems\MpLab\4\4_2\4_1.asm
+
+

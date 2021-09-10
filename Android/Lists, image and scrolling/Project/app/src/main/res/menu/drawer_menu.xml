@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_upp"
+            android:icon="@drawable/ic_arrow_drop_up_black_24dp"
+            android:title="Up"
+            />
+
+        <item
+            android:id="@+id/nav_down"
+            android:icon="@drawable/ic_arrow_drop_down_black_24dp"
+            android:title="Down"/>
+
+        <item
+            android:id="@+id/A_Z"
+            android:title="A-Z"/>
+        <item
+            android:id="@+id/Z_A"
+            android:title="Z-A"/>
+
+    </group>
+
+
+</menu>

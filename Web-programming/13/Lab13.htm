@@ -1,0 +1,178 @@
+<!DOCTYPE html><html>
+<html>
+<head>
+
+
+
+<style>
+#div1 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+	
+	
+	
+	p  {
+    color: red;
+    font-family: courier;
+    font-size: 160%;
+}
+}
+
+</style>
+<p id="demo" style="color:black; font-size:11.0mm;margin-left:1% position:absolute ;"></p>
+<a id="myLink"style="color:black; font-size:11.0mm;margin-left:1% position:absolute ; title="Click to do something" 
+ href="PleaseEnableJavascript.html" onclick="MyFunction();return false;"></a>
+ 
+ 
+ <a id="iframeCover" class="om-trigger-conversion"></a>
+<!-- <div id="formInstructions">Double Click Below to Get Started</div> -->
+<iframe id="fred" hidden = "none" width="200" height="200" ></iframe>
+
+
+<p id="p1" style="text-align:center " ;></p>
+
+ <p id="demo"></p>
+
+ 
+ 
+<script>
+  var left_, top_, width, height, img_;
+  window.onkeydown=function(e) { // Обработчик события keydown
+    if('onhelp' in window) { 
+      window.onhelp=function() { //  Обработчик события help для браузера IE 
+        help(); 
+        return false; 
+      }
+    } 
+    else if(e.which==112) { 
+      help(); 
+      return false;
+    }  
+	
+
+	<!-- if(event.altKey) -->
+	<!-- document.getElementById("p1").innerHTML = "New text!"; -->
+	<!-- if(event.shiftKey) -->
+	  <!-- document.getElementById("p1").hidden = true; -->
+
+
+	
+	
+    if((e.shiftKey && e.which==50)||(e.shiftKey && e.which==52)) { 
+      left_=500, top_=500, width=1280, height=960, img_;
+      img_=document.createElement("IMG"); 
+     document.body.appendChild(img_);
+      img_.style.position="absolute";
+      img_.style.left=left_+"px"; 
+      img_.style.top=top_+"px";   
+      img_.style.width=width+"px";   
+      img_.style.height=height+"px"; 
+      img_.style.zIndex="-1";
+
+    }
+    switch (e.which) { // Анализ Unicode клавиш
+      case 37: { //  "трелка влево"
+        if(left_>10) { 
+          left_-=10; 
+          img_.style.left=left_+"px"; 
+        }; 
+          break; 
+      } 
+      case 39: { // Стрелка вправо"
+        if(left_<window.innerWidth-170) { 
+          left_+=10; 
+          img_.style.left=left_+"px";
+        }; 
+        break; 
+      }
+      case 38: { // "Стрелка вверх"
+        if(top_>10) { 
+          top_-=10; 
+          img_.style.top=top_+"px";
+        } 
+        break; 
+      }         
+      case 40: { // "Стрелка вниз"
+        if(top_<window.innerHeight-170) { 
+          top_+=10; 
+          img_.style.top=top_+"px"; 
+        } break; 
+      }
+      case e.shiftKey && 49: {  // "1"
+          document.getElementById("demo").innerHTML =
+			"Hello Dolly!";
+		  document.getElementById("myLink").innerHTML ="Link";
+        break;  
+      }  
+      case e.shiftKey && 50: {  // "2"
+
+		img_.src="begin.jpg"; 
+        break; 
+      }  
+      case e.shiftKey && 51: { // "3"
+document.getElementById("fred").style.display = "block"; //shows the frame
+
+        break; 
+      }  
+	  case e.shiftKey && 52: {  // "4"
+          document.getElementById("demo").innerHTML =
+			"Hello Dolly!";
+		  document.getElementById("myLink").innerHTML ="Link";
+		  		img_.src="begin.jpg"; 
+        break;  
+      }
+		
+	case 18:{
+	
+	document.getElementById("p1").innerHTML = "block – элемент показывается как блочный, занимает всю доступную ширину окна и перед которым и после которого браузер устанавливает обрывы строк (переносы строк), т.е. строки, завершаются символами новой строки. Для блочного элемента можно явно указать ширину и высоту. Блочными элементами являются, например, заголовки и параграфы веб-страницы;!";
+	 var x = document.getElementById("p1");
+    if (e.shiftKey) {
+        x.innerHTML = "";
+    } else {
+        x.innerHTML = "block – элемент показывается как блочный, занимает всю доступную ширину окна и перед которым и после которого браузер устанавливает обрывы строк (переносы строк), т.е. строки, завершаются символами новой строки. Для блочного элемента можно явно указать ширину и высоту. Блочными элементами являются, например, заголовки и параграфы веб-страницы;";
+    }
+	 // document.getElementById("p1").hidden = true;
+	//document.getElementById("p1").style.visibility = "hidden";
+	break;
+
+	}	
+
+      case 188: { // "<"
+        if( width>20) { 
+          width-=1; 
+          img_.style.width=width+"px"; 
+          height-=1; 
+          img_.style.height=height+"px";
+        } 
+        break; 
+      }                    
+      case 190: { // ">"
+        width+=1; 
+        img_.style.width=width+"px"; 
+        height+=1; 
+        img_.style.height=height+"px"; 
+        break; 
+      }                 
+    }
+  }
+
+  function help() {             
+    alert("Выбор рисунка - клавиши '1','2' и '3'\n" +
+      "Перемещение рисунка - клавиши 'Стрелка влево','Стрелка вправо',"+
+      " 'Стрелка вниз' и 'Стрелка вверх'\n"+
+      "Изменение размера рисунка: - клавиши '<' и '>'");
+  } 
+</script>  
+</head>
+<body>
+<span style="color:blue; font-size:5.0mm;margin:1%;  position:absolute  ; outline-style: outset;">
+Comments for block press:ALT</span><br>
+
+<p style = "color:black;margin-right:1%;font-size:20mm; position:absolute "></p>
+<h1 style="color:#0000c0;margin-left:5%;font-size:7mm; position:absolute ; z-index:-2">
+</h1>
+</body>
+</html>

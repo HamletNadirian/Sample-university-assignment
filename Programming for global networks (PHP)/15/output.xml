@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<departments>
+   <department>
+      <group>CIT-M120D</group>
+      <cours>5</cours>
+      <flp>Shildt D.E.</flp>
+      <score>97</score>
+   </department>
+   <department>
+      <group>4</group>
+      <cours>235</cours>
+      <flp>Cormen H.J.</flp>
+      <score>98</score>
+   </department>
+     <department>
+      <group>CIT-M120D</group>
+      <cours>3</cours>
+      <flp>Cornel A.O.</flp>
+      <score>99</score>
+   </department>
+<department><group>OpenCV</group><cours>230</cours><flp>Maruthi</flp><score>5.5</score></department></departments>

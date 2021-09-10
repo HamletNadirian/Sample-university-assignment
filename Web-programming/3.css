@@ -1,0 +1,15 @@
+body {
+  margin:0cm 1.5cm 1.0cm 3cm;
+  background-color:#e8e8e8;
+} 
+h1 { 
+  text-align:center; 
+  color:#d0d; 
+  text-transform:uppercase;
+  font:italic  0.25in tahoma;    
+}
+p { text-indent:1.5cm; 
+  color:pink; 
+  font-size:1mm;
+}
+

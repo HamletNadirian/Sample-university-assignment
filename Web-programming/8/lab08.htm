@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<title>Формы на веб-странице </title>
+<style type="text/css">
+
+input, textarea, option {
+  background-color:white;
+  color:#004000;
+  font-size:6mm;
+}
+.kn {
+  background:white;
+  border:outset 3px blue;
+  font-size:4.5mm; 
+}
+td { 
+  vertical-align:middle; 
+}
+.newStyle1 {
+}
+.auto-style4 {
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left: 160px;
+}
+</style>
+</head>
+<body>
+    <h1 class="auto-style4">ЛАБОРАТОРНАЯ РАБОТА №8. Задание форм на веб-странице</h1>
+<form method="get" action="lab01.html">
+<table align="center" style="color:#000080; font-size:6.5mm">
+
+<tr> <td> Текстовое поле для ввода наименования студенческой группы
+<td> <input type="text" size="15" name="txt1" value="Строка текста">
+
+<tr> <td> Текстовое поле для ввода фамилии и инициалов студента
+
+<td> <input type="text" size="15" name="txt1" value="Строка текста">
+
+
+<tr> <td> Текстовые поля для ввода пяти чисел;
+
+<td> <input type="text" size="15" name="txt1" value="Строка текста">
+<tr><td> Выбор из списка (select)
+<td><select name="sel" size="2" multiple>
+<option value="first">Полный
+<option selected value="second">Сжатый
+</select>
+
+<tr> <td> Переключатели
+<td><input type=radio name="rad" value="on1"> Минимум<br>
+<input type=radio name="rad" value="on2" checked>По убыванию<br>
+<input type=radio name="rad" value="on3"> Среднее <br>
+
+</table>
+<p style="margin-left:5cm; color:white; background-color:white">
+<input type="reset" src ="buttosb.png">
+<input type="image" src="button.png"  >
+
+</p>
+</form>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

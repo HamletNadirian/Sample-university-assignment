@@ -1,0 +1,11 @@
+﻿  aes_128.cpp
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(170,22): warning C4333: >>: слишком большое смещение вправо; потеря данных
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(289,11): warning C4101: j: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(333,11): warning C4101: j: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(388,8): warning C4101: ciphertext: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(387,8): warning C4101: round: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(412,8): warning C4101: ciphertext: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(411,8): warning C4101: round: неиспользованная локальная переменная
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(473,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\Hamlet\source\repos\aes_128\aes_128.cpp(479,8): warning C4101: w2: неиспользованная локальная переменная
+  aes_128.vcxproj -> C:\Users\Hamlet\source\repos\aes_128\Debug\aes_128.exe

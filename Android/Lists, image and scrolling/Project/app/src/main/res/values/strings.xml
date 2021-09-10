@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">LAB05</string>
+    <string name="navigation_drawe_open">Open navigation drawer</string>
+    <string name="navigation_drawe_close">Close navigation drawer</string>
+    <string-array name="names">
+        <item>Messi</item>
+        <item>Ronaldo</item>
+        <item>Lewandowski</item>
+        <item>Suarez</item>
+        <item>Mbappe</item>
+        <item>Neymar</item>
+        <item>Dybala</item>
+        <item>Hazard</item>
+        <item>Modric</item>
+        <item>Salah</item>
+        <item>Mane</item>
+        <item>Alisson</item>
+        <item>Coutinho</item>
+        <item>Ronaldinho</item>
+        <item>Kane</item>
+    </string-array>
+</resources>

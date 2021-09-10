@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab02__</string>
+    <string-array name="operand">
+        <item>*</item>
+        <item>/</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,17 @@
+h1 { 
+  text-align:center; 
+  text-transform:uppercase;
+  color:#036; 
+  font-size: 18px;   /* 28px  */
+  font-family:Geneva;
+  font-style:normal; /*обычное начертание текста*/
+  font-variant: small-caps; /*small-caps – делает строчные буквы заглавными, но меньшего размера*/
+}         
+p { 
+  text-indent:1cm;  /*Устанавливает величину отступа первой строки блока текста*/
+  color:blue;  
+  font-size:15px;  
+  line-height: 1.0; /*Устанавливает интерлиньяж (межстрочный интервал) текста*/
+
+  }
+

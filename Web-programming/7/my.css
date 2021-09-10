@@ -1,0 +1,39 @@
+ /* ссылка в виде кнопки */
+a.kn {
+  font-style:italic;
+  font-size:0.6cm;
+  border:outset blue 4px; 
+  text-decoration:none;
+}
+/* непосещенная ссылка  */
+a.LinkButton:link {
+  color:red;
+  background-color:blue;
+}
+ /* посещенная ссылка */
+a.LinkButton:visited {
+  color:green;
+  background:gray;
+}
+/* отмеченная ссылка */
+a.LinkButton:active {
+  color:blue;
+  background:pink;
+}
+/* для ссылки с наведенным курсором мышки  */
+a.LinkButton:hover {
+  color:black;
+  font-style:italic;
+  background:white;
+} 
+ 
+a.LinkButton {
+	  border:outset blue 4px; 
+
+  border-style: solid;
+  border-width : 1px 1px 1px 1px;
+  text-decoration : none;
+  padding : 4px;
+  border-color : #000000;
+
+}

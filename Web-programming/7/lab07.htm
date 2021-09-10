@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ссылки на веб-странице</title>
+<link rel="stylesheet" href="my.css">
+<link rel="stylesheet" href="/my.css">
+<style type="text/css"> 
+table { 
+  color:#0000C0; 
+  font-size:6mm 
+} 
+td { height:40px; }
+iframe {
+  border-width:0px;
+  margin-left:3cm;
+  height:100px;
+  width:140px;
+}
+</style>
+</head>
+<body>
+<a id="beg"></a><br>
+<p align="center">Ссылки на веб-странице</p>
+<p align = "center">ЛАБОРАТОРНАЯ РАБОТА №7 <br>
+Тема: Работа со ссылками на веб-странице <br>
+Цель: Изучение средств и возможностей HTML и CSS для представления на веб-странице ссылок и сегментированной графики</p>
+<iframe name="ff" src=""> </iframe>
+<table width="60%" height="111%" align="center">
+<tr><td>Ссылка со стандартными параметрами:
+<td><a style = "cursor:n-resize" href="https://www.youtube.com/watch?v=eap0oA46HPM">ccылка на ютуб</a>
+
+<tr><td>Ссылка в виде рисунка:
+<td><a style = "cursor:n-resize" href="lab.htm" title="Использование графики в ссылках">
+<img src="HARVARD.png" width="170" height="150" border="0"></a>
+
+<p>Ссылка в виде кнопки</p>
+<div style="margin:5px;">
+<a style = "cursor:n-resize" href="palette.htm" class="LinkButton">Кнопка</a>
+</div>
+
+<tr><td>Ссылка в виде сегментированной графики:
+<td><img src="seg.bmp" align="middle" border="0" usemap="#my_map">
+</table>
+<map name="my_map">
+<area shape="circ" coords="88,49,5 noref">  
+<area shape="rect" coords="10,6,50,30" style = "cursor:n-resize" href="prim2.htm"
+  alt="Задание параметров шрифтов">
+<area shape="circ" coords="88,49,20" style = "cursor:n-resize" href="prim1.htm"
+alt="Использование CSS для форматирования текста">
+</map> 
+<a id="text"></A><BR>
+
+</body>
+</html>

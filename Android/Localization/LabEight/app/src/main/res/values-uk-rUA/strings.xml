@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лаб8</string>
+    <string name="country">Країна:</string>
+    <string name="lang">Мова:</string>
+</resources>

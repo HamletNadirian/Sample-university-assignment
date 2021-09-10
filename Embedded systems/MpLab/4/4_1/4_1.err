@@ -1,0 +1,6 @@
+Warning[203] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 3 : Found opcode in column 1. (option)
+Warning[224] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 3 : Use of this instruction is not recommended.
+Warning[203] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 4 : Found opcode in column 1. (nop)
+Warning[203] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 5 : Found opcode in column 1. (sleep)
+Warning[203] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 6 : Found opcode in column 1. (nop)
+Warning[205] C:\USERS\HAMOS\DESKTOP\ROOT\LEARN\EMBEDDED_SYSTEMS\MPLAB\4\4_1\4_1.ASM 7 : Found directive in column 1. (end)

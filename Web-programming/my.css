@@ -1,0 +1,10 @@
+ol {
+    list-style: decimal-leading-zero
+}
+ 
+ 
+/* графические маркеры снаружи текстового блока: */
+ 
+ul {
+	list-style-type:circle;
+}

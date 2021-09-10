@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#myli{
+				position:absolute;
+			}
+			.dot { 
+				position:absolute; 
+				width:7px; 
+				height:7px; 
+				background-color:#0000bf;
+				z-index:99;
+			} 
+		</style>
+	</head>
+	<body>
+
+
+		 <ul id="myli" oncontextmenu="ev1();" onmouseover="ev2();">
+			 <li>Click me</li> 
+
+		</ul> 
+		<script>
+		isMoving=false;
+		mode = 1;
+		framecount=0;
+		xpos=0;
+		firstMove=true;
+		function f(x){
+			return  (Math.log(50)*(x+5)-50) ;
+		}
+		frameproc = function(){
+			++framecount;
+			xpos += f(framecount)*mode;
+			if(mode == 1){
+				if(xpos <window.innerWidth-myli.clientWidth){
+					setTimeout(frameproc,16);
+				}
+				else{
+					xpos = window.innerWidth-myli.clientWidth;
+					mode = -1;
+					setTimeout(frameproc,16);
+				}
+			}
+			else{
+				if(xpos >0){
+					setTimeout(frameproc,16);
+				}
+				else{
+					xpos = 0
+					isMoving=false;
+					firstMove=false;
+				}
+			}
+			//myli.style.left = xpos+"px";
+			if(firstMove){
+				var dv=document.createElement("DIV"); 
+				dv.className="dot";
+				var xpos2 = xpos/2 + window.innerWidth/2
+				dv.style.left=xpos2+"px"; 
+				dv.style.top=framecount+"px"; 
+				document.body.appendChild(dv); 
+			}
+			
+		}
+		ev1=function(){
+			myli.style.backgroundColor="yellow";
+			
+		}
+		ev2=function(){
+			if(!isMoving){
+				xpos = 75;
+				myli.style.top = 175+"px";
+				framecount=0;
+				isMoving=true;
+				mode=1;
+				setTimeout(frameproc,16);
+			}
+		}
+		
+		</script>
+	</body>
+</html>
+

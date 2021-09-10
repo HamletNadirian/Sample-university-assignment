@@ -1,0 +1,5 @@
+D:\dnSpy-net472\rev\123\bin\Debug\123.exe.config
+D:\dnSpy-net472\rev\123\bin\Debug\123.exe
+D:\dnSpy-net472\rev\123\bin\Debug\123.pdb
+D:\dnSpy-net472\rev\123\obj\Debug\123.exe
+D:\dnSpy-net472\rev\123\obj\Debug\123.pdb

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Переопределение свойства width</title>
+<link rel="stylesheet" type="text/css" href="3.css"> 
+<style>
+  div {
+    color:red;
+    background-color:blue;
+    position:fixed;
+	  border-style:double; <!--Для границ--> 
+    border-color:red;    
+    width:5cm; <!-- фигура-->
+    height:1cm; <!-- фигура-->
+    margin-left:1; 
+	font-size:3mm;
+    text-align:center;
+
+  }
+
+ 
+</style>
+</head>
+<body> 
+<div style="top:1; padding:10px; border-width:0px;">  D1 – блочный элемент прямоугольной формы,
+ не имеющий границ (расположение на Web-странице, размеры, цвет символов и фона – на усмотрение студента);
+ </div>
+<div style="top:2px; padding:15px; border-width:10px;border-color:pink; left: 1px; width:5px; height:50px;">D2 </div>
+<div style="top:140px; padding:15px; border-width:10px;border-color:pink;border-radius:15% 25% 35% 45%; left: 1px; width:5px; height:50px;">D3 </div>
+<div style="top:270px; padding:15px; border-width:10px;border-color:pink;box-shadow: -18px 13px 0px 4px; left: 50px; width:5px; height:50px;">D4 </div>
+<div style="top:460px; padding:15px; border-width:10px;border-color:pink;border-radius:15% 25% 35% 45%; left:
+ 44px; width:5px; height:50px;transform:translate(55);transform:skewY(25deg);transform:scale(1.15,1.8);transform:rotate(-50);">D5 </div>
+
+</div>
+</body> 
+</html>

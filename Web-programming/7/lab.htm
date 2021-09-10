@@ -1,0 +1,494 @@
+<HTML>
+<HEAD>
+<TITLE>!!Лабораторная работа 7: Ссылки на веб-странице
+</TITLE>
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../heads.css">
+<style>
+tr.br td { 
+     margin-left:1.5cm;
+     text-align:center; 
+     width:120px;
+     font-size:5.5mm;
+   }
+</style>
+</HEAD>
+<BODY>
+<H1> ЛАБОРАТОРНАЯ РАБОТА №7</H1>
+<H2> <SPAN CLASS="beg" >Тема: </SPAN>
+Работа со ссылками на веб-странице</H2>
+<H2> <SPAN CLASS="beg" >Цель: </SPAN>
+Изучение средств и возможностей HTML и CSS для представления на веб-странице ссылок и 
+сегментированной графики</H2>
+<A id="beg"></A>
+<H3>ОГЛАВЛЕНИЕ</H3> 
+<A CLASS="com" HREF="#1">1 Представление ссылок на веб-странице<BR>
+<A CLASS="com" HREF="#1.1">1.1 Задание атрибутов ссылок<BR>
+<A CLASS="com" HREF="#1.2">1.2 Использование тега &lt;base><BR> 
+<A CLASS="com" HREF="#1.3">1.3 Использование CSS в ссылках<BR>
+<A CLASS="com" HREF="#1.4">1.4 Изображение курсора на веб-странице<BR>
+<A CLASS="com" HREF="#1.5">1.5 Использование внутренних ссылок<BR>
+<A CLASS="com" HREF="#1.6">1.6 Сегментированная графика<BR>
+<A CLASS="com" HREF="#prim1">Пример №1<BR>
+<A CLASS="com" HREF="#zad">Индивидуальные задания<BR>
+<A CLASS="com" HREF="../zmist.htm">Содержимое практикума <BR>
+<A id="1"></A>
+
+<H4>1 Представление ссылок на веб-странице </H4>
+<P>Ссылки &ndash; это выделенные объекты на веб-странице (слова, изображения и др.), которые при
+наведении курсора мыши меняют свои параметры с появлением на экране изображения "ладошки". После
+щелчка мыши по ссылке происходит поиск и загрузка требуемой веб-страницы.<BR>
+<SPAN CLASS="txt_abz">В </SPAN>HTML 4.01 тег <SPAN CLASS="svoj">&lt;a></SPAN> мог быть как ссылкой
+(англ. hyperlink), так и якорем (англ. anchor). В HTML5 тег <SPAN CLASS="svoj">&lt;a></SPAN>
+всегда является ссылкой, но если он не имеет атрибута <SPAN CLASS="svoj">href</SPAN>, он
+представляет собой место (англ. placeholder) для ссылки.
+<A id="1.1"></A>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+                                            
+<H4 CLASS="pod">1.1 Задание атрибутов ссылок</H4>
+<P>Для задания ссылки и ее атрибутов используется элемент
+<SPAN CLASS="svoj">&lt;a> ссылка &lt;/a></SPAN>, который содержит такие атрибуты:
+<UL CLASS="list">
+<LI> charset &ndash; задает кодировку символов связываемого документа.
+<span class="html5n">Не поддерживается HTML5</span>;
+<LI> coords &ndash; указывает координаты ссылки. 
+<span class="html5n">Не поддерживается HTML5</span>;
+<LI> download  &ndash; указывает на то, что указанный ресурс, заданный атрибутом href, будет
+загружен в компьютер при щелчке по ссылке. <span class="html5">Атрибут добавлен в HTML5</span>. В
+качестве значения атрибута указывается новое имя загружаемого файла. Ограничений на возможные
+значения не имеется и браузер, определив содержимое, автоматически добавит расширения
+(.img, .pdf, .txt, .html и др.) к имени файла. Если значение атрибута не задано, принимается
+исходное имя файла. Атрибут поддерживается браузерами Chrome 14.0, Firefox 20.0 и Opera 15,0.
+Не поддерживают &ndash; Internet Explorer и Safari;
+<LI> href &ndash; указывает URL-адрес Web-страницы, которая будет загружена после щелчка мыши
+по ссылке (если URL-адрес указывает на видеофайл или звуковой файл, то начнется воспроизведение
+соответственно видеофрагмента или звука); 
+<LI> hreflang &ndash; указывает язык подключаемого документа;
+<LI> media &ndash; указывает, для какого медиа устройства оптимизированы ресурсы
+(см. <a href="../LAB2/lab.htm#3.2">подраздел 3.2</a> лаб. раб. №2).
+<span class="html5">Атрибут добавлен в HTML5</span>;
+<LI> name &ndash; указывает имя в документе, куда будет перемещен указатель при внутреннем
+использовании ссылок. <span class="html5n">Не поддерживается HTML5</span>. Вместо атрибута name
+необходимо использовать глобальный атрибут id (см. подразделы <A HREF="#1.5"> 1.5 </A> данной лаб.
+раб. и <A HREF="../LAB1/lab.htm#2.3">2.3 </A> лаб. раб. №1);
+<LI> rel &ndash; указывает отношение между текущим и связываемым документами. Используется,
+если задан атрибут href. Отметим, что атрибут rel браузерами не обрабатывается, но может быть
+использован поисковыми системами, которые благодаря ему получат больше информации о ссылке. 
+Может принимать следующие значения:
+<UL CLASS="list2">
+<LI> alternate &ndash; ссылается на альтернативную версию документа, например, печатная страница,
+перевод или копия; 
+<LI> author &ndash; ссылается на автора документа;
+<LI> bookmark &ndash; указывает URL, используемый для закладки;
+<LI> help &ndash; ссылается на документ, предоставляющий помощь;
+<LI> license &ndash; ссылается на информацию о лицензировании документа;
+<LI> next &ndash; указывает следующий отмеченный документ;
+<LI> nofollow &ndash; ссылается на недоступный документ, например, платную ссылку;
+<LI> prefetch &ndash; указывает на то, что браузер не должен посылать HTTP заголовок
+перенаправления пользователя;
+<LI> prefetch &ndash; указывает, что целевой документ будет кэширован;
+<LI> prev &ndash; указывает предыдущий отмеченный документ;
+<LI> search &ndash; ссылается на поисковые средства (инструменты) для документа;
+<LI> tag &ndash; тег (ключевое слово) для текущего документа;
+</UL>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+<LI> rev &ndash; указывает соотношение между подключаемым документом и данным документом.
+<span class="html5n">Не поддерживается HTML5</span>;
+<LI> shape &ndash; используется вместе с атрибутом coords и указывает размер, форму и место
+ссылки в элементах &lt;object> или &lt;img>:
+<UL CLASS="list2">
+<LI> default &ndash; указывает всю область;
+<LI> rect &ndash; определяет прямоугольную область;
+<LI> circle &ndash; определяет круглую область;
+<LI> poly &ndash; определяет область многоугольника.
+</UL>
+<span class="html5n">Не поддерживается HTML5</span>.  Укажем, что для создания карты изображения,
+которая работает во всех браузерах, необходимо использовать элемент &lt;area>;
+<LI> target  &ndash; указывает место (окно или фрейм), где будет открыт полученный по ссылке
+документ:
+<UL CLASS="list2">
+<LI> _blank &ndash; документ открывается в новом окне;
+<LI> _self &ndash;  документ открывается в текущем окне (значение по умолчанию);
+<LI> _parent &ndash; документ открывается в окне родительского элемента;
+<LI> _top &ndash; документ открывается во весь экран;
+<LI> framename &ndash; документ открывается в окне (фрейме) с указанным именем;  
+</UL>
+<LI> type &ndash; указывает MIME-тип подключаемого документа.
+</UL>        
+<P> Отметим, что атрибуты <SPAN CLASS="svoj">download</SPAN>, <SPAN CLASS="svoj">hreflang</SPAN>,
+<SPAN CLASS="svoj">media</SPAN>, <SPAN CLASS="svoj">rel</SPAN>, <SPAN CLASS="svoj">target</SPAN> и
+<SPAN CLASS="svoj">type</SPAN> нельзя использовать, если не указан атрибут
+<SPAN CLASS="svoj">href</SPAN>. <BR>
+<SPAN CLASS="txt_abz">Для </SPN>задания ссылки на веб-страницу с описанием лабораторной работы №1
+можно применить следующий тег:<BR><BR>
+<SPAN CLASS="html">&lt;a href="../LAB1/lab.htm"> лаб. раб. №1&lt;/a>,</SPAN>
+<p class="ba">где "../LAB1/lab.htm" &ndash; задание пути к файлу "lab.htm" на данном компьютере,
+которое поддерживают все ведущие браузеры.<BR>
+<SPAN CLASS="txt_abz">Для </SPAN>изменения цвета ссылки в HTML 4.01 использовались следующие
+атрибуты тега <SPAN CLASS="svoj">&lt;body></SPAN>:
+<UL CLASS="list">
+<LI> link &ndash; задает цвет не просмотренной ссылки (по умолчанию синий);
+<LI> vlink &ndash; задает цвет посещенной ссылки (по умолчанию сиреневый);
+<LI> alink &ndash; задает цвет ссылки после щелчка мыши по ней, но до загрузки Web-страницы
+(по умолчанию красноватый).
+</UL>
+<P>Атрибуты <SPAN CLASS="svoj">link</SPAN>, <SPAN CLASS="svoj">vlink</SPAN> и
+<SPAN CLASS="svoj">alink</SPAN><span class="html5n"> не поддерживаются HTML5</span>. Для изменения
+цвета ссылок и других их свойств необходимо использовать псевдоклассы CSS
+(см. <a href="#1.3">подраздел 1.3 </a>). <BR>
+<SPAN CLASS="txt_abz">Ссылка </SPAN>может быть задана также в виде изображения. Для этого
+необходимо тег, задающий рисунок (<SPAN CLASS="svoj">&lt;img></SPAN>), поместить внутри элемента
+<SPAN CLASS="svoj">&lt;a> &hellip; &lt;/a></SPAN>:
+<p><SPAN CLASS="html">
+&lt;a href="../LAB2/lab.htm">&lt;img src="fish.gif"&gt;&lt;/a>
+<P>В <a href="#prim1"> примере №1</a> приведено использование стандартных ссылок, а также ссылок в
+виде изображения.
+<A id="1.2"></A>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+                                                
+<H4 CLASS="pod">1.2 Использование тега &lt;base> </H4>
+<P>В качестве URL-адреса ссылки может быть задан как абсолютный адрес, который включает базовый
+адрес (URL-адрес веб-страницы) и относительный адрес (путь к файлу внутри страницы), так и только
+относительный адрес. <BR>
+<SPAN CLASS="txt_abz">Элемент </SPAN><SPAN CLASS="svoj">&lt;base></SPAN> с помощью своих атрибутов
+<SPAN CLASS="svoj">href</SPAN> и <SPAN CLASS="svoj">target</SPAN> позволяет устанавливать значения
+по умолчанию для ссылок документа:
+<UL CLASS="list">
+<LI> href &ndash; задает базовый URL-адрес для всех ссылок, имеющих относительные URL-адреса;
+<LI> target &ndash; указывает место (окно или фрейм), где будет открыт полученный по ссылке
+документ (имеет те же значения, что и атрибут target элемента &lt;a>).
+</UL>
+<P>
+<A id="1.3"></A>
+
+<H4 CLASS="pod">1.3 Использование CSS в ссылках </H4>
+<P>Каскадные листы стилей, помимо псевдоклассов, описанных в
+<A HREF="../LAB2/lab.htm#1.2">подразделе 1.2</A> лаб. раб. №2, имеют следующие псевдоклассы,
+задающие свойства ссылок:
+<UL CLASS="list">
+<LI> a:link &ndash; для задания параметров (цвета, формы и др.) тех ссылок, которые еще не
+были использованы для загрузки веб-страниц;
+<LI> a:visited &ndash; для задания параметров тех ссылок, которые уже были использованы;
+<LI> a:active &ndash; для задания параметров активных ссылок, т.е. тех ссылок, которые
+выделены, например, нажатием левой кнопки мышки.
+</UL>
+<P> Отметим, что псевдо-классы описываются так же, как и классы
+(см. <A href="../LAB2/lab.htm#1">раздел 1</A>, а также подразделы
+<A href="../LAB2/lab.htm#3.1">3.1</A> и <A HREF="../LAB2/lab.htm#3.2">3.2</A> лаб. раб. №2).<BR>
+<SPAN CLASS="txt_abz">Если </SPAN>на веб-странице нужно использовать несколько ссылок, имеющих
+разные свойства, можно вместе с псевдоклассами задавать обычные классы. Например, можно создать
+класс изображений ссылок в виде кнопок. Ниже приводятся каскадные листы стилей, которые описывают
+класс ссылок <SPAN CLASS="svoj">a.kn</SPAN>, задающий для кнопки тип и размер шрифта, а также
+свойства границы:<BR><BR> 
+<SPAN CLASS="html_par1"> /*  </SPAN>
+<SPAN CLASS="html_com">ссылка в виде кнопки */ </SPAN><BR>
+<SPAN CLASS="html">a.kn { </SPAN> <br>
+<SPAN CLASS="html_par"> font-style:italic; </span> <br>
+<SPAN CLASS="html_par"> font-size:0.6cm; </span> <br>
+<SPAN CLASS="html_par"> border:outset blue 6px; </span> <br>
+<SPAN CLASS="html_par"> text-decoration:none. </span> <br>     
+<SPAN CLASS="html"> } </span> 
+<A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A> <p>
+Кроме того, для четырех состояний ссылок: <SPAN CLASS="svoj">link</SPAN>,
+<SPAN CLASS="svoj">visited</SPAN>, <SPAN CLASS="svoj">active</SPAN>
+и  <SPAN CLASS="svoj">hover</SPAN> ( см. <A HREF="../LAB2/lab.htm#1.2">подраздел 1.2</A> лаб. раб.
+№2) заданы четыре псевдо-класса, указывающие цвет надписи и фона кнопки для каждого состояния
+ссылки, соответственно:<BR><BR>
+<SPAN CLASS="html_par1"> /*  </SPAN>
+<SPAN CLASS="html_com">для непосещенной ссылки */ </SPAN><BR>
+<SPAN CLASS="html"> a.kn:link { </SPAN> <BR>
+<SPAN CLASS="html_par"> color:yellow;  </span> <br>
+<SPAN CLASS="html_par"> background-color:#C0C0C0;  </span> <br>
+<SPAN CLASS="html"> } </span> <br>
+<SPAN CLASS="html_par1"> /*  </SPAN>
+<SPAN CLASS="html_com">для посещенной ссылки */ </SPAN><BR>
+<SPAN CLASS="html"> a.kn:visited { </SPAN> <BR>
+<SPAN CLASS="html_par"> color:#90090; </span> <br>
+<SPAN CLASS="html_par"> background:#00E0E0; </span> <br>
+<SPAN CLASS="html"> } </span> <br>
+<SPAN CLASS="html_par1"> /*  </SPAN> 
+<SPAN CLASS="html_com">для отмеченной ссылки */ </SPAN><BR>
+<SPAN CLASS="html">a.kn:active {  </SPAN> <br>
+<SPAN CLASS="html_par"> color:#0000FF;  </SPAN> <br>
+<SPAN CLASS="html_par"> background:#FFFF00;  </SPAN> <br>
+<SPAN CLASS="html"> }  </span>  <br>
+<SPAN CLASS="html_par1"> /*  </SPAN>
+<SPAN CLASS="html_com">для ссылки с наведенным курсором мышки */ </SPAN><BR>
+<SPAN CLASS="html">a.kn:hover { </span> <br>
+<SPAN CLASS="html_par"> color:white; </span> <br>
+<SPAN CLASS="html_par"> background:#FF60A0; </span> <br>
+<SPAN CLASS="html"> } </span>. 
+<P>Эти описания параметров ссылок добавлены во внешний файл CSS
+<SPAN CLASS="svoj">"my_d.css"</SPAN> и используются в <A HREF="#prim1"> примере №1</A> 
+для задания свойств ссылок с помощью каскадных листов стилей.<BR>
+<SPAN CLASS="txt_abz">Ссылка </SPAN>класса <SPAN CLASS="svoj">"kn"</SPAN> задается так:<BR><BR>
+<SPAN CLASS="html">&lt;a class="kn" &hellip; &gt;.
+<A id="1.4"></A>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+
+<H4 CLASS="pod">1.4 Изображение курсора на веб-странице</H4>
+<P>При наведении курсора мыши на ссылку обычно появляется изображение "ладошки". В CSS имеется
+возможность изменить вид курсора (и не только для ссылок, но и для других элементов веб-страницы,
+например, изображений). Для этого необходимо использовать свойство
+<SPAN CLASS="svoj">cursor</SPAN>, которое устанавливает форму курсора, когда он находится в
+пределах элемента. Вид курсора зависит от операционной системы и заданных значений:
+<UL CLASS="list">
+<LI> <span style="cursor:alias">&nbsp;&nbsp;&nbsp;&nbsp;</span>alias &ndash; курсор указывает на
+создание псевдонима (англ. alias);
+<LI> <span style="cursor:all-scroll">&nbsp;&nbsp;&nbsp;&nbsp;</span> all-scroll &ndash; курсор
+указывает на скролирование в разных направлениях;
+<LI> <span style="cursor:auto">&nbsp;&nbsp;&nbsp;&nbsp;</span> auto &ndash; вид курсора по
+умолчанию для текущего элемента;
+<LI> <span style="cursor:cell">&nbsp;&nbsp;&nbsp;&nbsp;</span> cell &ndash; курсор указывает на
+выделение ячейки (или группы ячеек);
+<LI> <span style="cursor:context-menu">&nbsp;&nbsp;&nbsp;&nbsp;</span> context-menu &ndash; курсор
+указывает, что контекстное меню доступно;
+<LI> <span style="cursor:col-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> col-resize &ndash; курсор
+указывает, что размер колонки может быть изменен по горизонтали;
+<LI> <span style="cursor:copy">&nbsp;&nbsp;&nbsp;&nbsp;</span> copy &ndash; курсор указывает на
+копирование;
+<LI> <span style="cursor:crosshair">&nbsp;&nbsp;&nbsp;&nbsp;</span> crosshair &ndash; курсор
+указывается в виде креста;
+<LI> <span style="cursor:default">&nbsp;&nbsp;&nbsp;&nbsp;</span> default &ndash; изображение
+курсора по умолчанию;
+<LI> <span style="cursor:e-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> e-resize &ndash; курсор
+указывает, что край прямоугольного объекта (box) передвигается вправо (на восток) (не отличается от
+cursor:ew-resize &ndash; см. ниже);
+<LI> <span style="cursor:ew-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> ew-resize &ndash; курсор
+указывает на двунаправленное передвижение края объекта box (вправо-влево, восток-запад);
+<LI> <span style="cursor:grab">&nbsp;&nbsp;&nbsp;&nbsp;</span> grab &ndash; курсор указывает на
+перетаскивание объекта;
+<LI> <span style="cursor:help">&nbsp;&nbsp;&nbsp;&nbsp;</span> help &ndash; курсор указывает на
+доступность помощи;
+<LI> <span style="cursor:move">&nbsp;&nbsp;&nbsp;&nbsp;</span> move &ndash; курсор указывает на
+перемещение объекта;
+<LI> <span style="cursor:n-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> n-resize &ndash; курсор
+указывает, что край объекта box передвигается вверх (на север) (не отличается от cursor:ns-resize
+&ndash; см. ниже);
+<LI> <span style="cursor:ne-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> ne-resize &ndash; курсор
+указывает, что край объекта box передвигается вверх и вправо (на северо-восток) (сейчас не
+отличается от cursor:nesw-resize &ndash; см. ниже);
+<LI> <span style="cursor:nesw-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> nesw-resize &ndash; курсор
+указывает на двунаправленное передвижение края объекта box (вверх/вправо и вниз/влево,
+северо-восток и юго-запад);
+<LI> <span style="cursor:ns-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> ns-resize &ndash; курсор
+указывает на двунаправленное передвижение края объекта box вверх-вниз (север-юг);
+<LI> <span style="cursor:nw-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> nw-resize &ndash; курсор
+указывает, что край объекта box передвигается вверх и влево (на северо-запад) (сейчас не отличается
+от cursor:nwse-resize &ndash; см. ниже);
+<LI> <span style="cursor:nwse-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> nwse-resize &ndash; курсор
+указывает на двунаправленное передвижение края объекта box (вверх/влево и вниз/вправо,
+северо-запад и юго-восток); 
+<LI> <span style="cursor:no-drop">&nbsp;&nbsp;&nbsp;&nbsp;</span> no-drop &ndash; курсор указывает,
+что перетаскиваемый элемент не может быть здесь оставлен;
+<LI> <span style="cursor:none">&nbsp;&nbsp;&nbsp;&nbsp;</span> none &ndash; для элемента курсор не
+будет выведен;                         
+<LI> <span style="cursor:not-allowed">&nbsp;&nbsp;&nbsp;&nbsp;</span> not-allowed &ndash; курсор
+указывает, что запрашиваемое действие не будет выполнено;
+<LI> <span style="cursor:pointer">&nbsp;&nbsp;&nbsp;&nbsp;</span> pointer &ndash; курсор указывает
+на ссылку;
+<LI> <span style="cursor:progress">&nbsp;&nbsp;&nbsp;&nbsp;</span> progress &ndash; курсор
+указывает, что программа занята; 
+<LI> <span style="cursor:row-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> row-resize &ndash; курсор
+указывает, что размер строки может быть изменен по вертикали;
+<LI> <span style="cursor:s-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> s-resize &ndash; курсор
+указывает, что край объекта box передвигается вниз (на юг) (сейчас не отличается от
+cursor:ns-resize &ndash; см. выше);
+<LI> <span style="cursor:sw-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span> sw-resize &ndash; курсор
+указывает, что край объекта box передвигается вниз и влево (на юго-запад) (не отличается от
+cursor:nesw-resize &ndash; см. выше);
+<LI> <span style="cursor:text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> text &ndash; курсор указывает,
+что текст может быть выделен;
+<LI> <span style="cursor:url(../tre1.gif), auto">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+url(../tre1.gif), auto  &ndash; значением является список разделенных запятыми URL-адресов курсоров
+пользователя. Последним в списке нужно указать стандартное изображение курсора. Оно будет
+использовано, если ни один из курсоров пользователя не будет доступен, например:
+cursor:url(back.gif), url(tre1.gif), auto;
+<LI> <span style="cursor:vertical-text">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; vertical-text
+&ndash; курсор указывает, что вертикальный текст может быть выделен;
+<LI> <span style="cursor:w-resize">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; w-resize &ndash;
+курсор указывает, что край прямоугольного объекта (box) передвигается влево (на запад) (не
+отличается от cursor:ew-resize &ndash; см. выше);
+<LI> <span style="cursor:wait">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; wait &ndash; курсор
+показывает, что программа занята;
+<LI> <span style="cursor:zoom-in">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; zoom-in &ndash; курсор
+указывает на уменьшение размера;
+<LI> <span style="cursor:zoom-out">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; zoom-out &ndash; курсор
+указывает на увеличение размера;
+<LI> <span style="cursor:initial">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; initial &ndash; 
+устанавливает для свойства значение по умолчанию; 
+<LI><span style="cursor:inherit">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; inherit &ndash; 
+свойство наследует значение свойства родительского элемента.
+</UL>
+<P>Укажем, что изображение соответствующего курсора можно увидеть, установив в поле левее его
+значения курсор мышки. В <A HREF="#prim1">примере №1</A> показано использование изображение
+курсора в виде знака вопроса.
+<A id="1.5"></A>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+                                                                   
+<H4 CLASS="pod">1.5 Использование внутренних ссылок </H4>
+<P>Внутренние ссылки используются для облегчения доступа к отдельным частям документа,
+представленного на веб-странице. Для этого в HTML-документе с помощью тега
+<SPAN CLASS="svoj"></SPAN> &lt;a> в требуемых местах документа устанавливаются метки доступа. При
+этом в теге <SPAN CLASS="svoj">&lt;a></SPAN> вместо атрибута <SPAN CLASS="svoj">href</SPAN>
+используется атрибут <SPAN CLASS="svoj">id</SPAN>, задающий имя метки доступа. К этому месту на
+веб-странице можно обратиться с помощью обычной ссылки, в которой в качестве значения атрибута
+<SPAN CLASS="svoj">href</SPAN> указывается имя метки с предшествующим знаком
+<SPAN CLASS="svoj">#</SPAN>.<BR>
+<SPAN CLASS="txt_abz">Внутренние </SPAN>ссылки можно также использовать для доступа к внутренним
+частям другого документа. В этом случае к URL-адресу документа добавляется знак
+<SPAN CLASS="svoj">#</SPAN> и имя внутренней ссылки в этом документе. Например, с помощью ссылки<BR><BR>
+<SPAN CLASS="html">&lt;a href="../LAB2/lab.htm#2"><BR>
+<P CLASS="ba">обеспечивается доступ не к началу описания лабораторной работы №2, а к ее разделу 2.<BR>
+<SPAN CLASS="txt_abz">В </SPAN><a href="#prim1"> примере №1</a> показано применение внутренних
+ссылок для текущего и внешнего документов.
+<A id="1.6"></A>
+                   
+<H4 CLASS="pod">1.6 Сегментированная графика </H4>
+<P>К сегментированной графике относятся изображения, условно разбитые на отдельные части в виде
+определенных геометрических фигур, каждая из которых представляет собой область чувствительности к
+щелчку мыши и является ссылкой.<BR>
+<SPAN CLASS="txt_abz">Для </SPAN>перечисления областей чувствительности используется элемент
+<SPAN CLASS="svoj">&lt;map></SPAN>, атрибут которого <SPAN CLASS="svoj">name</SPAN> задает имя
+карты с описанием этих областей.<BR>
+<SPAN CLASS="txt_abz">Каждая </SPAN>область чувствительности описывается с помощью одиночного тега
+<SPAN CLASS="svoj"></SPAN> &lt;area>, который содержит такие атрибуты:
+<UL CLASS="list">
+<LI> shape &ndash; задает геометрическую фигуру, описывающую форму области чувствительности:
+<UL CLASS="list2">
+<LI> rect &ndash; прямоугольник; 
+<LI> circ &ndash; окружность;
+<LI> poly &ndash; многоугольник.
+</UL>
+<LI> coords &ndash; задает координаты этих фигур:
+<UL CLASS="list2">
+<LI> для прямоугольника &ndash; в виде  координат его левого правого угла и левого нижнего
+(x1,y1,x2,y2);
+<LI>для окружности &ndash; в виде пары координат центра и величины радиуса (x,y,r);
+<LI>для многоугольника &ndash; в виде пар  координат для каждой вершины (x1,y1,x2,y2, &hellip;).
+</UL>
+<LI> href &ndash; задает URL-адрес требуемой веб-страницы;
+<LI> nohref &ndash; указывает на то, что данная область нечувствительна к наведению мышки
+(должна быть объявлена первой);
+<LI> alt &ndash; задает поясняющую надпись под ссылкой, которая появляется некоторое время
+спустя после наведения указателя мышки на ссылку (аналогично атрибуту title тега &lt;a>).
+</UL>
+<P>Например, для задания фигур и координат трех областей чувствительности (они выделены цветом)
+изображения <SPAN CLASS="svoj">&lt;img src="seg.bmp" align="middle" border="0"></SPAN> используются
+следующие значения атрибутов <SPAN CLASS="svoj">shape</SPAN> и <SPAN CLASS="svoj">coords</SPAN>:
+<UL CLASS="list">                                                  
+<LI> для прямоугольника &ndash; shape=rect coords=10,6,50,30 
+<LI> для треугольника &ndash; shape=poly coords=10,40,10,80,50,40 
+<LI> для окружности &ndash; shape=circ coords=88,49,20  
+</UL>                                                                  
+<P> Чтобы связать между собой рисунок с сегментированной графикой, заданный тегом
+<SPAN CLASS="svoj">&lt;img></SPAN> с картой изображения, заданной контейнером
+<SPAN CLASS="svoj">&lt;map> &hellip; &lt;/map></SPAN>, необходимо указать в теге
+<SPAN CLASS="svoj">&lt;img></SPAN> атрибут <SPAN CLASS="svoj">usemap</SPAN>, значением которого
+является значение параметра <SPAN CLASS="svoj">name</SPAN> тега <SPAN CLASS="svoj">&lt;map></SPAN>
+с добавленным первым символом решетки (#). <BR>
+<SPAN CLASS="txt_abz">В </SPAN><A HREF="#prim1">примере №1</A> показано использование разных видов
+ссылок на Web-странице.
+<A id="prim1"></A><BR>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+
+<P><A CLASS="out" HREF="prim1.htm">Пример 1</A><BR><BR>
+<SPAN CLASS="html">&lt;!DOCTYPE html> </SPAN><BR>
+<SPAN CLASS="html">&lt;html&gt; </SPAN><BR>
+<SPAN CLASS="html">&lt;head&gt; </SPAN><BR>
+<SPAN CLASS="html">&lt;title&gt; Ссылки на веб-странице &lt;/title&gt; </SPAN><BR>
+<SPAN CLASS="html">&lt;link rel=stylesheet href="../my.css"&gt; </SPAN><BR>
+<SPAN CLASS="html">&lt;link rel=stylesheet href="../my_d.css"&gt; </SPAN><BR>
+<SPAN CLASS="html">&lt;style type="text/css"></SPAN><BR>
+<SPAN CLASS="html">table { </SPAN><BR> 
+<SPAN CLASS="html_par"> color:#0000C0; </SPAN><BR> 
+<SPAN CLASS="html_par"> font-size:7mm </SPAN><BR>
+<SPAN CLASS="html"> } </SPAN><BR>
+<SPAN CLASS="html">td { height:120px; } </SPAN><BR>
+<SPAN CLASS="html">iframe { </SPAN><BR>
+<SPAN CLASS="html_par"> border-width:0px; </SPAN><BR>
+<SPAN CLASS="html_par"> margin-left:3cm; </SPAN><BR>
+<SPAN CLASS="html_par"> height:140px; </SPAN><BR>
+<SPAN CLASS="html_par"> width:140px; </SPAN><BR>
+<SPAN CLASS="html"> } </SPAN><BR>
+<SPAN CLASS="html">&lt;/style> </SPAN><BR>
+<SPAN CLASS="html">&lt;/head> </SPAN><BR>
+<SPAN CLASS="html">&lt;body> </SPAN><BR>
+<SPAN CLASS="html">&lt;a id="beg"&gt;&lt;/a&gt;&lt;br&gt;</SPAN><BR>
+<SPAN CLASS="html">&lt;h1>Ссылки на веб-странице&lt;/h1> </SPAN><BR>
+<SPAN CLASS="html">&lt;iframe name="ff" src=""> &lt;/iframe> </SPAN><BR>
+<SPAN CLASS="html">&lt;table with=60% heaght=130% align=center&gt;<BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt; Ссылка со стандартными параметрами:<BR>
+<SPAN CLASS="html">&lt;td&gt;
+<SPAN CLASS="htmlba">&lt;a href="../LAB1/lab.htm"&gt Лаб. раб. №1 &lt;/a&gt;<BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt; Внутренняя ссылка:<BR>
+<SPAN CLASS="html">&lt;td&gt;&lt;a href="#text"&gt; Текст HTML-документа &lt;/a&gt;<BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt; Ссылка в виде рисунка:<BR>
+<SPAN CLASS="html">&lt;td&gt;&lt;a href="../LAB5/prim1.htm" <BR>
+<SPAN CLASS="html_par">title="Использование графики в ссылках">
+&lt;img src="fish.gif"&gt;&lt;/a&gt;<BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt; Ссылка в виде кнопки:<BR>
+<SPAN CLASS="html">&lt;td&gt;&lt;a class="kn" href="../LAB2/lab.htm#2"&gt;
+Раздел 2 лаб. раб. №2 &lt;/a&gt; <BR>
+<SPAN CLASS="html">&lt;tr>&lt;td>Ссылка для запуска видеофрагмента: <BR>
+<SPAN CLASS="html">&lt;td> &lt; a href="clock.swf" target="ff">Текущее время&lt;/a> <BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt;Ссылка-справка:<BR>
+<SPAN CLASS="html">&lt;td> &lt;a style="border-style:none; cursor: help" <br> 
+<SPAN CLASS="html_par">href="../LAB3/prim1.htm"&gt; Списки &lt;/a> <BR>
+<SPAN CLASS="html">&lt;tr&gt;&lt;td&gt; Ссылка в виде сегментированной графики:<BR>
+<SPAN CLASS="html">&lt;td&gt;&lt;img src="seg.bmp" align="middle" border="0" usemap="#my_map"&gt;<BR>
+<SPAN CLASS="html">&lt;/table&gt;<BR>
+<SPAN CLASS="html">&lt;map name="my_map"&gt;<BR>
+<SPAN CLASS="html">&lt;area shape=circ coords=88,49,5 noref&gt;<BR>  
+<SPAN CLASS="html">&lt;area shape=rect coords=10,6,50,30 href= "../LAB1/prim2.htm"<BR>
+<SPAN CLASS="html_par">alt="Задание параметров шрифтов"&gt;<BR>
+<SPAN CLASS="html">&lt;area shape=poly coords=10,40,10,80,50,40 href="../LAB1/prim3.htm"<BR>
+<SPAN CLASS="html_par">alt="Физическое и логическое форматирование текста"&gt;<BR> 
+<SPAN CLASS="html">&lt;area shape=circ coords=88,49,20 href="../LAB2/prim1.htm"<BR> 
+<SPAN CLASS="html_par">alt="Использование CSS для форматирования текста"&gt;<BR>
+<SPAN CLASS="html">&lt;/map&gt;<BR>
+<SPAN CLASS="html">&lt;a id="text"&gt;&lt;/a&gt;&lt;br&gt; <BR>
+<SPAN CLASS="html">&lt;a href="#beg"&gt;На начало&lt;/a&gt; <BR>
+<SPAN CLASS="html">&lt;p&gt; Текст HTML-документа<BR>
+<SPAN CLASS="html">&lt;/body&gt;<BR>
+<SPAN CLASS="html">&lt;/html&gt;<BR>
+<A id="zad"></A>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+                  
+<H4> Индивидуальные задания</H4>
+<P>Разработать HTML-документ, задающий на веб-странице:
+<UL CLASS="list">
+<LI> обычную ссылку;
+<LI> две локальные ссылки;
+<LI> ссылку в виде сегментированной графики с несколькими областями чувствительности;
+<LI> курсор с требуемым изображением <BR> (параметры всех трех ссылок и курсора приведены в 
+таблице 1).
+</UL>
+<P><TABLE align="center" border=1 align=center width="90%" style="font-size:4.7mm;">
+<CAPTION><p class="ba">Таблица 1 &ndash; Перечень заданий</CAPTION>
+<TR>
+<TH>№<TH>Ссылка<BR>в виде<TH>Локальная ссылка<BR>в виде<TH>Локальная ссылка<BR>в виде
+<TH>Области чувствительности<BR>сегментированной графики<TH>Вид курсора
+<TR><TD>1<TD>изображения<TD>кнопки<TD>текста<TD>3-угольник, квадрат<TD>text
+<TR><TD>2<TD>кнопки<TD>текста<TD>изображения<TD>квадрат, окружность<TD>help
+<TR><TD>3<TD>кнопки с изобр.<TD>кнопки<TD>текста<TD>окружность, 5-угольник<TD>wait
+<TR><TD>4<TD>текста<TD>кнопки<TD>изображения<TD>4-угольник, окружность<TD>e-resize
+<TR><TD>5<TD>изображения<TD>текста<TD>кнопки<TD>5-угольник, квадрат<TD>n-resize
+<TR><TD>6<TD>кнопки<TD>изображения<TD>текста<TD>3-угольник, 6-угольник<TD>ne-resize
+<TR><TD>7<TD>кнопки с изобр.<TD>кнопки<TD>текста<TD>квадрат, 5-угольник<TD>nw-resize
+<TR><TD>8<TD>текста<TD>кнопки с изобр.<TD>изображения<TD>окружность, квадрат<TD>url
+<TR><TD>9<TD>изображения<TD>кнопки с изобр.<TD>текста<TD>4-угольник, 5-угольник<TD>help
+<TR><TD>10<TD>кнопки<TD>кнопки с изобр.<TD>текста<TD>5-угольник, 4-угольник<TD>wait
+<TR><TD>11<TD>кнопки с изобр.<TD>текста<TD>изображения<TD>3-угольник, 5-угольник<TD>e-resize
+<TR><TD>12<TD>текста<TD>изображения<TD>кнопки<TD>квадрат, 6-угольник<TD>n-resize
+<TR><TD>13<TD>изображения<TD>кнопки<TD>текста<TD>окружность, квадрат<TD>ne-resize
+<TR><TD>14<TD>кнопки<TD>текста<TD>изображения<TD>4-угольник, 6-угольник<TD>nw-resize
+<TR><TD>15<TD>кнопки с изобр.<TD>текста<TD>изображения<TD>5-угольник, окружность<TD>text
+<TR><TD>16<TD>текста<TD>кнопки<TD>изображения<TD>3-угольник, окружность<TD>help
+<TR><TD>17<TD>изображения<TD>текста<TD>кнопки с изобр.<TD>квадрат, окружность<TD>wait
+<TR><TD>18<TD>кнопки<TD>текста<TD>кнопки с изобр.<TD>окружность, 4-угольник<TD>url
+<TR><TD>19<TD>кнопки с изобр.<TD>кнопки<TD>текста<TD>4-угольник, квадрат<TD>n-resize
+<TR><TD>20<TD>текста<TD>кнопки с изобр.<TD>кнопки<TD>5-угольник, 4-угольник<TD>ne-resize
+</TABLE>
+<p> <A CLASS="out" HREF="#beg" style="margin-left:80%">Оглавление</A>
+</BODY>
+</HTML>

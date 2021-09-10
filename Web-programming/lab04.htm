@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Лабораторная работа №4</title>
+<link rel="stylesheet" href="my.css">
+<style type="text/css">
+
+ul.none li {      /* Убираем исходные маркеры */
+  list-style-type:none;
+}
+
+ul.none li::after {   /* Добавляем маркер в виде символа "?" */
+     content: "? "; 
+     color:purple;
+     font-size:10mm;
+}
+ul.im {
+    list-style-image: url(windows.jpg);
+   }
+   
+</style>
+</head>
+<body>
+
+<h1>Представление списков на веб-странице</h1>
+<!-- <dl> -->
+<!-- <dt>Списки, которые поддерживает HTML: -->
+<dd>Цитаты Цицерона;
+<ul>
+<ul class = "im"> 
+   <li>EX MALIS ELIGERE MINIMA</li>
+   <li>HISTORIA EST MAGISTRA VITAE</li>
+   <li>ILIAS MALORUM</li>
+   <li>LATINE LOQUI</li>
+   <li>O TEMPORA, O MORES</li>
+</ul>
+ 
+<pre>Список римских императоров:</pre>
+<ol>
+<li>Октавиан Август; 
+<li>Тиберий;
+<li>Клемент;
+<li>Калигула;
+<li>Клавдий;
+<li>Скрибониан;
+<li>Нерон.
+</ol>   
+
+<pre>Список процесоров intel:</pre>
+<dd>
+ <ul>
+<li>Intel Celeron
+<li>Intel Pentium.
+<li>Intel Core i3
+<li>Intel Core i5.
+<li>Intel Core i7.
+<li>Intel Core E3
+</ul>
+
+<pre>Актуальные вопросы, на которые у науки нет ответов::</pre>
+<ul class="none">
+<li>Каков состав Вселенной
+<li> Почему нам снятся сны
+<li>Что случается с простыми числами
+<li>Когда роботы станут нашими собеседниками
+<li>Что представляет собой "чёрная дыра"
+
+</ul>
+</ul>
+</body> 
+</html>

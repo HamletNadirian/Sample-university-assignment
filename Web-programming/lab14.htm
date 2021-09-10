@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Вывод даты и текущего времени</title>
+<link rel="stylesheet" href="../my.css">
+<style>
+<p id="demo"></p>
+
+input { 
+  font-size:8mm; 
+  color:blue; 
+  text-align:center; 
+  background:#f0f0ff; 
+  position:absolute;
+  top:5px;
+  }	
+</style>
+<script>
+  var out_d=false, out_t=false, timer;   
+  window.onload=function(e) { 
+    document.onkeypress=keyPress;
+    if('onhelp'in window) {  
+      window.onhelp=function() { 
+        help(); 
+        return false; 
+      }
+    }
+    else window.onkeydown=function(e) { 
+      if(e.which==112) { 
+        help(); 
+        return false; 
+     }
+   }
+ }
+  function help() {
+    f.txt.style.display=""; 
+    setTimeout("f.txt.style.display='none';",4000);
+   }
+  function keyPress(e) {
+    switch(String.fromCharCode(e.which)) {
+      case "д": 
+	  
+	      setTimeout("f.date.style.display='none';",4000);
+
+	  
+        if(!out_d) { 
+           f.date.style.display=""; 
+           outDate();
+        }                                                     
+        else f.date.style.display="none"; 
+        out_d=!out_d; 
+			      setTimeout("f.time.style.display='none';",4000);
+
+		   if(!out_t) { 
+         f.time.style.display="";
+         outTime();
+       } 
+       else { 
+         f.time.style.display="none"; 
+         clearTimeout(timer); 
+       }
+       out_t=!out_t; 
+		
+        break;
+     case "в": 
+       if(!out_t) { 
+         f.time.style.display="";
+         outTime();
+       } 
+       else { 
+         f.time.style.display="none"; 
+         clearTimeout(timer); 
+       }
+       out_t=!out_t; 
+       break;
+     case "з": delay(4,1); 
+     }
+  }
+  function outDate() {
+     var cur_time=new Date();
+     var t=cur_time;
+     switch(t.getDay()) {
+       case 0: s="Вс"; break;
+       case 1: s="Пн"; break;
+       case 2: s="Вт"; break;
+       case 3: s="Ср"; break;
+       case 4: s="Чт"; break;
+       case 5: s="Пт"; break;
+       case 6: s="Сб";
+     }         
+       f.date.value=s+' '+t.getDate()+"."+(t.getMonth()+1)+"."+t.getFullYear();
+   }
+  function outTime() {
+    cur_time=new Date();
+    with (cur_time) f.time.value=getHours()+":"+getMinutes()+":"+getSeconds();
+    timer=setTimeout("outTime()",50);
+  }
+  function delay() { 
+    var par=0;
+    d=arguments[0];
+    if (arguments.length==2) par=arguments[1];
+    switch(par) {
+      case 1: d*=1000;break;
+      case 2: d*=60000;
+    }
+    base_time=new Date().getTime(); 
+    while(new Date().getTime()-base_time<d);
+  }
+  
+     var t1=performance.now();
+  var sq=Math.log(4+Math.sqrt(2))+Math.log(2);  
+  var t2=performance.now();
+  alert(t2-t1);
+  
+</script>  
+</head> 
+<body> 
+<p style="text-align:center; font-size:4.5mm">(Для вывода времени и даты нажмите Д)</p>
+<form name="f">
+<input type="text" name="date" style="left:800px; width:215px; display:none">
+<input type="text" name="time" style="left:1020px; width:130px; display:none">
+<textarea name="txt" cols="44" rows="4" style="font-size:5mm; color:blue; background-color:#f0f0ff;
+display:none">
+
+</textarea>
+</form>
+</body
+</html>
