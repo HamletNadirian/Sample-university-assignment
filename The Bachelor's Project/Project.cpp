@@ -1,4 +1,8 @@
-﻿#include <cstdio>
+/**
+System for automated design of combined encryption algorithms
+Including libraries to test my AES128 in combination with other ciphers.
+**/
+#include <cstdio>
 #include <iostream>
 #include <list>
 
@@ -291,10 +295,7 @@ void InvMixColumns(word8 c[])
 			k++;
 
 		}
-
 	}
-
-
 }
 static word8 RotWord(word8 w)
 {
@@ -453,7 +454,6 @@ void key_expansion(word8 key[], word8 w[]) {
 		w[4 * i + 2] = w[4 * (i - Nk) + 2] ^ tmp[2];
 		w[4 * i + 3] = w[4 * (i - Nk) + 3] ^ tmp[3];
 
-
 	}
 }
 
@@ -478,7 +478,6 @@ void invkey_expansion(word8* key, word8* w) {
 		tmp[2] = w[4 * (i - 1) + 2];
 		tmp[3] = w[4 * (i - 1) + 3];
 
-
 		if (i % Nk == 0) {
 			rot_word(tmp);
 			sub_word(tmp);
@@ -488,8 +487,6 @@ void invkey_expansion(word8* key, word8* w) {
 		else if (Nk > 6 && i % Nk == 4) {
 
 			sub_word(tmp);
-
-
 		}
 
 		w[4 * i + 0] = w[4 * (i - Nk) + 0] ^ tmp[0];
@@ -497,11 +494,8 @@ void invkey_expansion(word8* key, word8* w) {
 		w[4 * i + 2] = w[4 * (i - Nk) + 2] ^ tmp[2];
 		w[4 * i + 3] = w[4 * (i - Nk) + 3] ^ tmp[3];
 		InvMixColumns(w);
-
 	}
 }
-
-
 
 void RoundKey(word8* key, word8 offset, word8* state)
 {
@@ -510,8 +504,6 @@ void RoundKey(word8* key, word8 offset, word8* state)
 		state[i] ^= key[offset + i];
 
 	}
-
-
 }
 
 void ecnryption(word8 key[16], word8 state[16], word8 output[16]) {
@@ -541,7 +533,7 @@ void ecnryption(word8 key[16], word8 state[16], word8 output[16]) {
 		output[i] = state[i];	
 	
 
-	}		printf("\n");
+	}		
 	printf("\n");
 	printf("encccccccc\n"); for (int i = 0; i < 16; i++)
 	{
@@ -558,11 +550,8 @@ void decryption(word8 key[], word8 state[],word8 output[]) {
 
 	word8 round;
 	word8 ciphertext[176];
-
 	RoundKey(key, 160, state);
-
-
-
+	
 	for (int i = 9; i >= 1; --i)
 	{
 
@@ -570,8 +559,6 @@ void decryption(word8 key[], word8 state[],word8 output[]) {
 		Inv_SubBytes(state);
 		RoundKey(key, i * 16, state);
 		InvMixColumns(state);
-
-
 	}
 
 	InvShiftRows(state);
@@ -628,8 +615,6 @@ void checkSize(string &str){
 			str.push_back(0);
 		}
 	}
-
-
 }
 
 word8* encryption_AES(word8 key[16],word8 plain[],word8 *cipher){
@@ -651,11 +636,6 @@ try {
 	{
 		printf("%c",cipher[i]);
 	}
-
-
-
-
-
 	return cipher;
 }
 
@@ -721,8 +701,7 @@ word8* decryption_Serpent(word8 key[16],word8 *cipher,word8 *cipher_plain){
 word8* encryption_Twofish(word8 key[16],word8 *plain,word8 *cipher){
 	try {
 		
-				cout<<"encryption_Twofish"<<endl;
-
+	cout<<"encryption_Twofish"<<endl;
     ECB_Mode<Twofish>::Encryption _ENCTYPTION;
 	_ENCTYPTION.SetKey( key, 16 );
 			cout<<"encryption_Twofish"<<endl;
@@ -755,58 +734,6 @@ word8* decryption_Twofish(word8 key[16],word8 *cipher,word8 *cipher_plain){
 	}	cout<<endl;
 
 		return cipher_plain;
-}
-void md5_(){
-
-CryptoPP::MD5 hash;
-byte digest[ CryptoPP::MD5::DIGESTSIZE ];
-std::string message = "AES";
-
-hash.CalculateDigest( digest, (byte*) message.c_str(), message.length() );
-
-CryptoPP::HexEncoder encoder;
-std::string output;
-encoder.Attach( new CryptoPP::StringSink( output ) );
-encoder.Put( digest, sizeof(digest) );
-encoder.MessageEnd();
-
-std::cout << output << std::endl;
-}
-
-
-void sha256_(){
-
-CryptoPP::SHA256 hash;
-byte digest[ CryptoPP::SHA256::DIGESTSIZE ];
-std::string message = "AES";
-
-hash.CalculateDigest( digest, (byte*) message.c_str(), message.length() );
-
-CryptoPP::HexEncoder encoder;
-std::string output;
-encoder.Attach( new CryptoPP::StringSink( output ) );
-encoder.Put( digest, sizeof(digest) );
-encoder.MessageEnd();
-
-std::cout << output << std::endl;
-}
-
-
-
-void hash_md5_(string message){
-
-CryptoPP::MD5 hash;
-byte digest[ CryptoPP::MD5::DIGESTSIZE ];
-
-hash.CalculateDigest( digest, (byte*) message.c_str(), message.length() );
-
-CryptoPP::HexEncoder encoder;
-std::string output;
-encoder.Attach( new CryptoPP::StringSink( output ) );
-encoder.Put( digest, sizeof(4) );
-encoder.MessageEnd();
-
-std::cout << output << std::endl;
 }
 
 word8* paddingNulls(word8 in[], unsigned int inLength, unsigned int alignLength)
@@ -953,8 +880,6 @@ word8 * aes128enc(word8 key[], word8 state[], word8 *output){
 			return output;
 }
 
-
-
 word8 * aes128dec( word8 key[], word8 state[], word8 *output){
 	ofstream out("dec.bin", ios::binary);
 	if (!out) {
@@ -994,10 +919,6 @@ void test(char* argv[]){
 		string argFiileName = argv[1];
 		string path = "C:\\";
 		string full_pathand_name = path + argFiileName;
-
-
-
-
 		int L=0;
 	string s; // сюда будем класть считанные строки
 //    ifstream file("C:\\readCipher.txt"); // файл из которого читаем 
@@ -1157,8 +1078,6 @@ cipher_string = "";
 
 }
 
-
-
 word8* STRtoCharDEC(string str){ /////////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////////////////////////
 	
 	unsigned char *val=new unsigned char[sizePrint/2];
@@ -1177,10 +1096,8 @@ word8* twoF(word8 key[], word8 plain[], word8 *cipher){
 
 void testDEC() {
 	string cipher_string;
-
 	int L = 0;
 	string s; // сюда будем класть считанные строки
-
 	ifstream file("C:\\read.txt"); // файл из которого читаем 
 	vector<string> strInFile;
 	std::string token;
@@ -1263,9 +1180,6 @@ void testDEC() {
 	}
 
 }
-
-
-
 
 int main (int argc, char* argv[]){
 		setlocale(LC_ALL, "ASCII");
