@@ -35,22 +35,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // your handler code here
-
-
                 numberOne = (EditText) findViewById(R.id.editText);
                 numberTwo = (EditText) findViewById(R.id.editText2);
                 var1 = Integer.parseInt(numberOne.getText() + "");
                 var2 = Integer.parseInt(numberTwo.getText() + "");
-
-
-
                 Intent intent = new Intent(MainActivity.this, ViewActivity.class);
                 intent.putExtra("var1", var1);
                 intent.putExtra("var2", var2);
                 intent.putExtra("symbol", enter.toString());
-
-
                 startActivity(intent);
             }
         });
