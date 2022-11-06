@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text_size = findViewById(R.id.text_size);
-
       new Thread(new Runnable(){
             @Override
             public void run() {
@@ -35,15 +34,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
-private static final String TAG = "myLogs";
-
   @SuppressLint("SetTextI18n")
   private void show() throws IOException {
-
    URL url = new URL("https://nafsk.se/pipermail/dcml/1995-April/003883.html");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
-      connection.setRequestProperty("Accept-Encoding", "identity"); // <--- Add this line
+      connection.setRequestProperty("Accept-Encoding", "identity"); 
       final int length = (int) connection.getContentLengthLong ();
       final String convertSizeToString = String.valueOf(length);
       text_size.post(new Runnable() {
