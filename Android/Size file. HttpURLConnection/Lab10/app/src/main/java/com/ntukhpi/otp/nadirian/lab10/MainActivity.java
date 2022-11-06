@@ -2,6 +2,7 @@ package com.ntukhpi.otp.nadirian.lab10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -33,19 +34,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
-
     }
 private static final String TAG = "myLogs";
 
+  @SuppressLint("SetTextI18n")
   private void show() throws IOException {
-   URL url = new URL("http://home.mcom.com");
+      URL url = new URL("https://nafsk.se/pipermail/dcml/1995-April/003883.html");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
       connection.setRequestProperty("Accept-Encoding", "identity"); // <--- Add this line
       final int length = (int) connection.getContentLengthLong ();
-      text_size.setText("The size of file is = " + String.valueOf(length) + "bytes");
-      String tag;
-      Log.d(TAG, String.valueOf(length));
+      runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+              String convertSizeToString = String.valueOf(length);
+              text_size.setText((convertSizeToString));
+              Log.d(TAG, String.valueOf(length));
+          }
+      });
    }
 }
