@@ -39,17 +39,16 @@ private static final String TAG = "myLogs";
 
   @SuppressLint("SetTextI18n")
   private void show() throws IOException {
-      URL url = new URL("https://nafsk.se/pipermail/dcml/1995-April/003883.html");
+
+   URL url = new URL("https://nafsk.se/pipermail/dcml/1995-April/003883.html");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
       connection.setRequestProperty("Accept-Encoding", "identity"); // <--- Add this line
       final int length = (int) connection.getContentLengthLong ();
-      runOnUiThread(new Runnable() {
-          @Override
+      final String convertSizeToString = String.valueOf(length);
+      text_size.post(new Runnable() {
           public void run() {
-              String convertSizeToString = String.valueOf(length);
-              text_size.setText((convertSizeToString));
-              Log.d(TAG, String.valueOf(length));
+              text_size.setText(convertSizeToString);
           }
       });
    }
